@@ -18,18 +18,6 @@
         background-color: #fdfbf8;
         color: #1a202c;
       }
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: -30px;
-        top: 20px;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: #4a5568;
-        border: 4px solid #fdfbf8;
-      }
     </style>
   </head>
   <body class="antialiased">
@@ -109,8 +97,131 @@
         <h2 class="text-3xl font-bold text-center mb-12">
           Professional Experience
         </h2>
-        <div class="relative max-w-4xl mx-auto pl-8 border-l-2 border-gray-200">
-          <div id="timeline-container"></div>
+        <div class="relative max-w-4xl mx-auto pl-4 border-l-2 border-gray-200">
+          <div id="timeline-container">
+            <div class="mb-12 timeline-item relative">
+              <div>
+                <p class="text-sm text-gray-500">March 2012 - Present</p>
+                <h3 class="text-xl font-bold text-gray-800">
+                  Freelance Web Developer
+                </h3>
+                <p class="text-md text-gray-600 font-medium">Self-employed</p>
+              </div>
+              <div class="mt-4">
+                <ul class="ml-4 list-disc space-y-2 text-gray-700">
+                  <li>
+                    Acting as a Senior Full Stack Engineer for various clients,
+                    focusing on the architecture and development of Single Page
+                    Applications (SPAs) and SSR applications with React and
+                    Vue.js.
+                  </li>
+                  <li>
+                    Responsible for the complete feature lifecycle, including
+                    defining API contracts, implementing frontend business
+                    logic, and integrating with Node.js backends.
+                  </li>
+                  <li>
+                    Implemented comprehensive test suites with Jest, Vitest, and
+                    Cypress, ensuring code quality and maintainability while
+                    reducing regressions in production.
+                  </li>
+                  <li>
+                    Optimized application performance through code-splitting,
+                    caching, and Server-Side Rendering (SSR) techniques,
+                    significantly improving Core Web Vitals.
+                  </li>
+                  <li>
+                    Engineered a low-latency, near-instantaneous navigation
+                    experience by leveraging advanced caching and pre-rendering
+                    techniques, consistently achieving exceptional Lighthouse
+                    scores (95+) across performance, accessibility, and SEO.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mb-12 timeline-item relative">
+              <div>
+                <p class="text-sm text-gray-500">January 2020 - Present</p>
+                <h3 class="text-xl font-bold text-gray-800">
+                  Senior Remote Web Developer
+                </h3>
+                <p class="text-md text-gray-600 font-medium">SBT</p>
+              </div>
+              <div class="mt-4">
+                <ul class="ml-4 list-disc space-y-2 text-gray-700">
+                  <li>
+                    Led the development and maintenance of complex dashboards
+                    and reusable UI components for high-traffic systems using
+                    React and TypeScript.
+                  </li>
+                  <li>
+                    Collaborated in an agile team to deliver new features in
+                    15-day cycles, architecting and managing application state
+                    in a predictable and scalable manner.
+                  </li>
+                  <li>
+                    Integrated frontend applications with AWS services (Cognito,
+                    DynamoDB, S3), ensuring secure and efficient communication.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mb-12 timeline-item relative">
+              <div>
+                <p class="text-sm text-gray-500">July 2024 - October 2024</p>
+                <h3 class="text-xl font-bold text-gray-800">
+                  Senior Fullstack JavaScript Developer
+                </h3>
+                <p class="text-md text-gray-600 font-medium">
+                  Beyond Analytics
+                </p>
+              </div>
+              <div class="mt-4">
+                <ul class="ml-4 list-disc space-y-2 text-gray-700">
+                  <li>
+                    Architected and operated full-stack applications with
+                    Node.js and MongoDB, utilizing Docker for containerization
+                    and streamlining the deployment process.
+                  </li>
+                  <li>
+                    Led the development of data visualizations and reports,
+                    consuming and processing large volumes of data from Google
+                    BigQuery to present actionable insights to users.
+                  </li>
+                  <li>
+                    Contributed to the implementation of SRE practices, focusing
+                    on system resilience and performance.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mb-12 timeline-item relative">
+              <div>
+                <p class="text-sm text-gray-500">June 2015 - October 2019</p>
+                <h3 class="text-xl font-bold text-gray-800">
+                  Remote Middle Front End Developer
+                </h3>
+                <p class="text-md text-gray-600 font-medium">Reclame Aqui</p>
+              </div>
+              <div class="mt-4">
+                <ul class="ml-4 list-disc space-y-2 text-gray-700">
+                  <li>
+                    Worked on the evolution of the main portal and internal
+                    systems, using ReactJS and AngularJS in a micro-frontend
+                    environment.
+                  </li>
+                  <li>
+                    Actively participated in the deployment and operation of the
+                    infrastructure with Docker and Kubernetes, ensuring
+                    application stability.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -348,74 +459,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const experienceData = [
-          {
-            role: "Freelance Web Developer",
-            company: "Self-employed",
-            period: "March 2012 - Present",
-            details: [
-              "Acting as a Senior Full Stack Engineer for various clients, focusing on the architecture and development of Single Page Applications (SPAs) and SSR applications with React and Vue.js.",
-              "Responsible for the complete feature lifecycle, including defining API contracts, implementing frontend business logic, and integrating with Node.js backends.",
-              "Implemented comprehensive test suites with Jest, Vitest, and Cypress, ensuring code quality and maintainability while reducing regressions in production.",
-              "Optimized application performance through code-splitting, caching, and Server-Side Rendering (SSR) techniques, significantly improving Core Web Vitals.",
-              "Engineered a low-latency, near-instantaneous navigation experience by leveraging advanced caching and pre-rendering techniques, consistently achieving exceptional Lighthouse scores (95+) across performance, accessibility, and SEO.",
-            ],
-          },
-          {
-            role: "Senior Remote Web Developer",
-            company: "SBT",
-            period: "January 2020 - Present",
-            details: [
-              "Led the development and maintenance of complex dashboards and reusable UI components for high-traffic systems using React and TypeScript.",
-              "Collaborated in an agile team to deliver new features in 15-day cycles, architecting and managing application state in a predictable and scalable manner.",
-              "Integrated frontend applications with AWS services (Cognito, DynamoDB, S3), ensuring secure and efficient communication.",
-            ],
-          },
-          {
-            role: "Senior Fullstack JavaScript Developer",
-            company: "Beyond Analytics",
-            period: "July 2024 - October 2024",
-            details: [
-              "Architected and operated full-stack applications with Node.js and MongoDB, utilizing Docker for containerization and streamlining the deployment process.",
-              "Led the development of data visualizations and reports, consuming and processing large volumes of data from Google BigQuery to present actionable insights to users.",
-              "Contributed to the implementation of SRE practices, focusing on system resilience and performance.",
-            ],
-          },
-          {
-            role: "Remote Middle Front End Developer",
-            company: "Reclame Aqui",
-            period: "June 2015 - October 2019",
-            details: [
-              "Worked on the evolution of the main portal and internal systems, using ReactJS and AngularJS in a micro-frontend environment.",
-              "Actively participated in the deployment and operation of the infrastructure with Docker and Kubernetes, ensuring application stability.",
-            ],
-          },
-        ];
-
-        const timelineContainer = document.getElementById("timeline-container");
-        experienceData.forEach((job) => {
-          const item = document.createElement("div");
-          item.className = "mb-12 timeline-item relative";
-
-          const content = `
-                    <div>
-                        <p class="text-sm text-gray-500">${job.period}</p>
-                        <h3 class="text-xl font-bold text-gray-800">${
-                          job.role
-                        }</h3>
-                        <p class="text-md text-gray-600 font-medium">${
-                          job.company
-                        }</p>
-                    </div>
-                    <div class="mt-4">
-                        <ul class="ml-4 list-disc space-y-2 text-gray-700">
-                            ${job.details.map((d) => `<li>${d}</li>`).join("")}
-                        </ul>
-                    </div>
-                `;
-          item.innerHTML = content;
-          timelineContainer.appendChild(item);
-        });
+        // Timeline is now static in HTML; only initialize the Skills chart.
 
         const skillsData = {
           labels: [
@@ -448,17 +492,10 @@
             maintainAspectRatio: false,
             scales: {
               r: {
-                angleLines: {
-                  color: "rgba(0, 0, 0, 0.1)",
-                },
-                grid: {
-                  color: "rgba(0, 0, 0, 0.1)",
-                },
+                angleLines: { color: "rgba(0, 0, 0, 0.1)" },
+                grid: { color: "rgba(0, 0, 0, 0.1)" },
                 pointLabels: {
-                  font: {
-                    size: 14,
-                    weight: "bold",
-                  },
+                  font: { size: 14, weight: "bold" },
                   color: "#2D3748",
                 },
                 ticks: {
@@ -470,11 +507,7 @@
                 suggestedMax: 10,
               },
             },
-            plugins: {
-              legend: {
-                display: false,
-              },
-            },
+            plugins: { legend: { display: false } },
           },
         };
 
