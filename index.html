@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Richard A. | Senior Frontend Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,6 +37,39 @@
         outline-offset: 2px;
         border-radius: 4px;
       }
+      /* Button-style links (override global underline) */
+      a.btn {
+        text-decoration: none !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0.9rem;
+        font-weight: 600;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      .btn-outline {
+        border: 1px solid #2563eb;
+        color: #1d4ed8 !important;
+        background: transparent;
+      }
+      .btn-outline:hover {
+        background: #eff6ff; /* blue-50 */
+      }
+
+      /* Print: make .line-breaker force a new page */
+      @media print {
+        .line-breaker {
+          display: block !important;
+          break-before: page;
+          page-break-before: always; /* legacy */
+          height: 0 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: 0 !important;
+        }
+      }
     </style>
   </head>
   <body class="antialiased">
@@ -69,58 +101,69 @@
       </nav>
     </header>
 
-    <main class="container mx-auto px-6 py-12 md:py-20">
-      <section id="hero" class="text-center mb-20">
+    <main class="container mx-auto px-6 py-12 lg:py-20">
+      <section id="hero" class="text-center mb-12">
         <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
           Senior Frontend Engineer
         </h1>
         <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          Specializing in React, Next.js, and building high-performance,
-          polished user experiences.
+          React/Next.js specialist focused on performance and polished UX.
         </p>
-        <div
-          class="mt-8 flex flex-col sm:flex-row justify-center space-x-4 space-y-4 sm:space-y-0 text-gray-500"
-        >
-          <a href="mailto:richard.arias@msn.com" class="hover:text-gray-800"
-            >My Email</a
-          >
-          <span class="hidden md:block">&bull;</span>
-          <a
-            href="https://www.linkedin.com/in/richard-q6zlvftdf"
-            target="_blank"
-            class="hover:text-gray-800"
-            >LinkedIn</a
-          >
-          <span class="hidden md:block">&bull;</span>
-          <a
-            href="https://github.com/thundree"
-            target="_blank"
-            class="hover:text-gray-800"
-            >GitHub</a
-          >
-          <span class="hidden md:block">&bull;</span>
-          <p>RJ, Brazil</p>
+        <div class="mt-8 flex flex-col items-center space-y-4">
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="mailto:richard.arias@msn.com" class="btn btn-outline"
+              >✉️ Email</a
+            >
+            <a
+              href="https://www.linkedin.com/in/richard-q6zlvftdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/thundree"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+              >🐙 GitHub</a
+            >
+          </div>
+          <div class="flex flex-wrap justify-center gap-2 text-gray-700">
+            <span
+              class="px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-sm font-medium"
+              >18+ yrs experience</span
+            >
+            <span
+              class="px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-sm font-medium"
+              >95+ Lighthouse</span
+            >
+            <span
+              class="px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-sm font-medium"
+              >React • Next.js • TS</span
+            >
+          </div>
+          <div class="text-gray-500">Rio de Janeiro, Brazil</div>
         </div>
       </section>
 
       <section id="summary" class="mb-20 max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-8">Summary</h2>
         <p class="text-center text-gray-700 leading-relaxed">
-          Senior Software Engineer with over 18 years of experience,
-          specializing in building high-performance, polished user interfaces
-          with <b>React, Next.js, and TypeScript</b>. I have a proven track
-          record of leading end-to-end feature development, from collaborating
-          on REST/GraphQL API design to deploying on platforms like
-          <b>Vercel and Hetzner</b>. I am passionate about applying best
-          practices in code quality, testing (Jest, Cypress, Playwright),
-          product analytics with tools like <b>PostHog</b>, and state management
-          (Zustand, Redux) to create intuitive and scalable SaaS products, with
-          a strong interest in applying these skills to solve complex challenges
-          in the Artificial Intelligence domain.
+          Senior Frontend Engineer with 18+ years in IT, capable of delivering
+          high-performance web apps in
+          <b>React, Next.js, and TypeScript</b>. Leads features end-to-end, from
+          API contract design to deployment (Vercel/Hetzner). Focused on
+          polished UX, quality (Jest, Cypress, Playwright), and product
+          analytics (<b>PostHog</b>). Results include <b>95+ Lighthouse</b>,
+          near-instant navigation via caching/prerendering, and fewer
+          regressions through comprehensive testing.
         </p>
       </section>
 
-      <section id="experience" class="mb-20">
+      <div class="line-breaker"></div>
+
+      <section id="experience" class="mb-12">
         <h2 class="text-3xl font-bold text-center mb-12">
           Professional Experience
         </h2>
@@ -128,40 +171,32 @@
           <div id="timeline-container">
             <div class="mb-12 timeline-item relative">
               <div>
-                <p class="text-sm text-gray-500">March 2012 - Present</p>
+                <p class="text-sm text-gray-500">
+                  March 2012 - Present · In parallel
+                </p>
                 <h3 class="text-xl font-bold text-gray-800">
-                  Freelance Web Developer
+                  Freelance Frontend Consultant
                 </h3>
                 <p class="text-md text-gray-600 font-medium">Self-employed</p>
               </div>
               <div class="mt-4">
                 <ul class="ml-4 list-disc space-y-2 text-gray-700">
                   <li>
-                    Acting as a Senior Full Stack Engineer for various clients,
-                    focusing on the architecture and development of Single Page
-                    Applications (SPAs) and SSR applications with React and
-                    Vue.js.
+                    Architect and develop SPAs/SSR apps with React and Vue, from
+                    API contract definition to frontend business logic and
+                    Node.js integrations.
                   </li>
                   <li>
-                    Responsible for the complete feature lifecycle, including
-                    defining API contracts, implementing frontend business
-                    logic, and integrating with Node.js backends.
+                    Establish robust testing suites (Jest, Vitest, Cypress) to
+                    improve quality and reduce production regressions.
                   </li>
                   <li>
-                    Implemented comprehensive test suites with Jest, Vitest, and
-                    Cypress, ensuring code quality and maintainability while
-                    reducing regressions in production.
+                    Optimize performance via code-splitting, caching, and SSR,
+                    consistently achieving excellent Core Web Vitals.
                   </li>
                   <li>
-                    Optimized application performance through code-splitting,
-                    caching, and Server-Side Rendering (SSR) techniques,
-                    significantly improving Core Web Vitals.
-                  </li>
-                  <li>
-                    Engineered a low-latency, near-instantaneous navigation
-                    experience by leveraging advanced caching and pre-rendering
-                    techniques, consistently achieving exceptional Lighthouse
-                    scores (95+) across performance, accessibility, and SEO.
+                    Deliver near-instant navigation through advanced caching and
+                    pre-rendering, supporting high accessibility and SEO scores.
                   </li>
                 </ul>
               </div>
@@ -171,25 +206,23 @@
               <div>
                 <p class="text-sm text-gray-500">January 2020 - Present</p>
                 <h3 class="text-xl font-bold text-gray-800">
-                  Senior Remote Web Developer
+                  Senior Frontend Engineer (Remote)
                 </h3>
                 <p class="text-md text-gray-600 font-medium">SBT</p>
               </div>
               <div class="mt-4">
                 <ul class="ml-4 list-disc space-y-2 text-gray-700">
                   <li>
-                    Led the development and maintenance of complex dashboards
-                    and reusable UI components for high-traffic systems using
-                    React and TypeScript.
+                    Led dashboards and reusable UI components for high-traffic
+                    systems using React and TypeScript.
                   </li>
                   <li>
-                    Collaborated in an agile team to deliver new features in
-                    15-day cycles, architecting and managing application state
-                    in a predictable and scalable manner.
+                    Planned and delivered features in 2-week cycles with
+                    predictable and scalable state management.
                   </li>
                   <li>
-                    Integrated frontend applications with AWS services (Cognito,
-                    DynamoDB, S3), ensuring secure and efficient communication.
+                    Integrated with AWS (Cognito, DynamoDB, S3) ensuring secure,
+                    efficient flows.
                   </li>
                 </ul>
               </div>
@@ -199,7 +232,7 @@
               <div>
                 <p class="text-sm text-gray-500">July 2024 - October 2024</p>
                 <h3 class="text-xl font-bold text-gray-800">
-                  Senior Fullstack JavaScript Developer
+                  Senior Full-stack JavaScript Developer
                 </h3>
                 <p class="text-md text-gray-600 font-medium">
                   Beyond Analytics
@@ -208,18 +241,17 @@
               <div class="mt-4">
                 <ul class="ml-4 list-disc space-y-2 text-gray-700">
                   <li>
-                    Architected and operated full-stack applications with
-                    Node.js and MongoDB, utilizing Docker for containerization
-                    and streamlining the deployment process.
+                    Shipped full-stack features with Node.js and MongoDB using
+                    Docker across environments to streamline delivery.
                   </li>
                   <li>
-                    Led the development of data visualizations and reports,
-                    consuming and processing large volumes of data from Google
-                    BigQuery to present actionable insights to users.
+                    Built data visualizations and reports consuming large
+                    datasets from Google BigQuery to surface actionable
+                    insights.
                   </li>
                   <li>
-                    Contributed to the implementation of SRE practices, focusing
-                    on system resilience and performance.
+                    Contributed SRE practices focused on resilience and
+                    performance.
                   </li>
                 </ul>
               </div>
@@ -229,21 +261,19 @@
               <div>
                 <p class="text-sm text-gray-500">June 2015 - October 2019</p>
                 <h3 class="text-xl font-bold text-gray-800">
-                  Remote Middle Front End Developer
+                  Mid-level Frontend Engineer (Remote)
                 </h3>
                 <p class="text-md text-gray-600 font-medium">Reclame Aqui</p>
               </div>
               <div class="mt-4">
                 <ul class="ml-4 list-disc space-y-2 text-gray-700">
                   <li>
-                    Worked on the evolution of the main portal and internal
-                    systems, using ReactJS and AngularJS in a micro-frontend
-                    environment.
+                    Evolved the main portal and internal systems using React and
+                    AngularJS in a micro-frontend environment.
                   </li>
                   <li>
-                    Actively participated in the deployment and operation of the
-                    infrastructure with Docker and Kubernetes, ensuring
-                    application stability.
+                    Participated in deployment and operations with Docker and
+                    Kubernetes, ensuring application stability.
                   </li>
                 </ul>
               </div>
@@ -252,17 +282,148 @@
         </div>
       </section>
 
+      <section class="mb-8" id="languages">
+        <h2 class="text-3xl font-bold text-center mb-6">Languages</h2>
+        <div class="flex justify-center gap-3">
+          <span
+            class="px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium"
+            >Portuguese (native)
+          </span>
+          <span
+            class="px-3 py-1 rounded-full bg-gray-100 text-gray-800 text-sm font-medium"
+            >English (fluent)</span
+          >
+        </div>
+      </section>
+
       <section id="skills" class="mb-20">
-        <h2 class="text-3xl font-bold text-center mb-8">Skills Dashboard</h2>
-        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          A visual representation of my core competencies across different areas
-          of software development. This highlights my strengths in creating
-          modern, robust, and scalable web applications.
+        <h2 class="text-3xl font-bold text-center mb-8">Skills</h2>
+        <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+          Core competencies across the stack, presented for quick scanning.
         </p>
-        <div
-          class="chart-container relative w-full max-w-2xl mx-auto h-96 md:h-[500px]"
-        >
-          <canvas id="skillsChart"></canvas>
+        <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-lg shadow p-3 border border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-3">Frontend</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >React</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Next.js</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >TypeScript</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Tailwind CSS</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >shadcn/ui</span
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow p-3 border border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-3">Testing & QA</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Jest</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Vitest</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Cypress</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Playwright</span
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow p-3 border border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-3">Backend & API</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Node.js</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Express</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >REST</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >GraphQL</span
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow p-3 border border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-3">DevOps & Cloud</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Docker</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >AWS</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Vercel</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Netlify</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Kubernetes</span
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow p-3 border border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-3">Databases</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >MongoDB</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >PostgreSQL</span
+              >
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow p-3 border border-gray-200">
+            <h4 class="font-semibold text-gray-800 mb-3">UI/UX & Analytics</h4>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Figma</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >Lighthouse</span
+              >
+              <span
+                class="px-2.5 py-1 rounded bg-gray-100 text-gray-800 text-sm"
+                >PostHog</span
+              >
+            </div>
+          </div>
         </div>
       </section>
 
@@ -313,7 +474,7 @@
           </div>
           <div class="mb-4">
             <h4 class="font-semibold mb-2">Stack:</h4>
-            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2">
+            <div class="grid grid-cols-2 sm:grid-cols-4 sm:grid-cols-6 gap-2">
               <span
                 class="bg-gray-200 flex justify-center items-center text-center text-gray-800 text-sm font-medium mr-2 px-2.5 py-1 rounded"
                 >Next.js</span
@@ -342,11 +503,13 @@
           </div>
         </div>
 
+        <div class="line-breaker"></div>
+
         <h3 class="text-2xl font-bold text-center mb-8 text-gray-700">
           Community & Social Impact Projects
         </h3>
 
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-8">
           <div
             class="bg-white rounded-lg shadow-lg p-4 border border-gray-200 flex flex-col"
           >
@@ -371,7 +534,7 @@
             </p>
             <div>
               <h5 class="font-semibold mb-2 text-sm">Stack:</h5>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                 <span
                   class="bg-gray-200 flex justify-center items-center text-center text-gray-800 text-sm font-medium mr-2 px-2.5 py-1 rounded"
                   >Next.js</span
@@ -391,6 +554,7 @@
               </div>
             </div>
           </div>
+
           <div
             class="bg-white rounded-lg shadow-lg p-4 border border-gray-200 flex flex-col"
           >
@@ -415,7 +579,7 @@
             </p>
             <div>
               <h5 class="font-semibold mb-2 text-sm">Stack:</h5>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
                 <span
                   class="bg-gray-200 flex justify-center items-center text-center text-gray-800 text-sm font-medium mr-2 px-2.5 py-1 rounded"
                   >Next.js</span
@@ -441,9 +605,9 @@
           On-going Projects
         </h3>
 
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-8">
           <div
-            class="bg-white rounded-lg shadow-lg p-8 border border-gray-200 flex flex-col"
+            class="bg-white rounded-lg shadow-lg p-3 border border-gray-200 flex flex-col"
           >
             <div class="mb-2">
               <h4 class="text-xl font-bold">Anonymous AI Chat</h4>
@@ -459,7 +623,7 @@
             </p>
           </div>
           <div
-            class="bg-white rounded-lg shadow-lg p-8 border border-gray-200 flex flex-col"
+            class="bg-white rounded-lg shadow-lg p-3 border border-gray-200 flex flex-col"
           >
             <div class="mb-2">
               <h4 class="text-xl font-bold">
@@ -480,71 +644,27 @@
       </section>
     </main>
 
-    <footer class="bg-white mt-20 border-t">
-      <div class="container mx-auto px-6 py-8 text-center text-gray-600">
-        <p>&copy; Richard A. | Built with Tailwind CSS & Chart.js</p>
+    <footer class="bg-white mt-8 border-t print:hidden">
+      <div class="container mx-auto px-6 py-3 text-center text-gray-600">
+        <p class="mb-3">&copy; Richard A. | Built with Tailwind CSS</p>
+        <div class="flex justify-center gap-4 text-sm">
+          <a href="mailto:richard.arias@msn.com">Email</a>
+          <span class="text-gray-400">|</span>
+          <a
+            href="https://www.linkedin.com/in/richard-q6zlvftdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <span class="text-gray-400">|</span>
+          <a
+            href="https://github.com/thundree"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </div>
       </div>
     </footer>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Timeline is now static in HTML; only initialize the Skills chart.
-
-        const skillsData = {
-          labels: [
-            "Frontend",
-            "Testing & QA",
-            "Backend & API",
-            "DevOps & Cloud",
-            "Databases",
-            "UI/UX Tools",
-          ],
-          datasets: [
-            {
-              label: "Proficiency",
-              data: [9, 8, 7, 6, 8, 7],
-              backgroundColor: "rgba(74, 85, 104, 0.2)",
-              borderColor: "rgba(45, 55, 72, 1)",
-              pointBackgroundColor: "rgba(45, 55, 72, 1)",
-              pointBorderColor: "#fff",
-              pointHoverBackgroundColor: "#fff",
-              pointHoverBorderColor: "rgba(45, 55, 72, 1)",
-            },
-          ],
-        };
-
-        const config = {
-          type: "radar",
-          data: skillsData,
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              r: {
-                angleLines: { color: "rgba(0, 0, 0, 0.1)" },
-                grid: { color: "rgba(0, 0, 0, 0.1)" },
-                pointLabels: {
-                  font: { size: 14, weight: "bold" },
-                  color: "#2D3748",
-                },
-                ticks: {
-                  backdropColor: "#FDFBF8",
-                  color: "#718096",
-                  stepSize: 2,
-                },
-                suggestedMin: 0,
-                suggestedMax: 10,
-              },
-            },
-            plugins: { legend: { display: false } },
-          },
-        };
-
-        const skillsChart = new Chart(
-          document.getElementById("skillsChart"),
-          config
-        );
-      });
-    </script>
   </body>
 </html>
